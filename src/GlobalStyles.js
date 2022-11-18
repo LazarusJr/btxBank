@@ -8,10 +8,10 @@ body {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 400;
   color: white;
+  background-color: black;
 }
 
 * {
-  background-color: black;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

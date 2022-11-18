@@ -1,25 +1,22 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { FaUserCircle } from "react-icons/fa";
+
+import { ReactComponent as UserP } from "../../Assets/Navbar/userP.svg";
 
 export const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-`;
-
-export const Nav = styled.div`
-  height: 110px;
-  width: 100%;
-  background-color: black;
+  background-color: transparent;
 `;
 
 export const NavLogo = styled.div`
   justify-content: center;
   display: flex;
-
+  transition: filter 300ms;
   &:hover {
+    filter: brightness(7);
     cursor: pointer;
   }
 `;
@@ -58,8 +55,10 @@ export const Links = styled(Link)`
   text-decoration: none;
   color: white;
   padding: 10px;
+  transition: filter 300ms;
 
   &:hover {
+    filter: brightness(5);
     text-shadow: 0 5px 15px rgba(255, 255, 255, 2);
   }
 `;
@@ -70,14 +69,67 @@ export const ProfileUser = styled.div`
   display: flex;
 `;
 
-export const UserIcon = styled(FaUserCircle)`
+export const UserIcon = styled(UserP)`
   height: auto;
-  width: 25px;
+  width: 35px;
   justify-content: center;
-  margin-top: 12px;
+  align-items: center;
+  display: inline-flex;
+  margin-top: 10px;
+  margin-right: 10px;
+  transition: filter 300ms;
 
   &:hover {
-    text-shadow: 0 5px 15px rgba(255, 255, 255 7);
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 2);
     cursor: pointer;
+    filter: brightness(4);
   }
 `;
+
+export const DropDown = styled.div`
+  position: absolute;
+  top: 70px;
+  width: 250px;
+  height: 250px;
+  transform: translate(-50%);
+  /* padding: 1rem; */
+  background-color: #121314;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 888;
+  /* border-top-right-radius: 120px; */
+`;
+
+export const MenuItem = styled.menu`
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 0.5;
+  transition: background-color 0.2s;
+  h1 {
+    font-size: 10px;
+  }
+`;
+
+export const NavButton = styled.button`
+  height: 60px;
+  width: 320px;
+  background-color: #383c40;
+  transition: filter(30.2s);
+  color: white;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  border: 0;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(2);
+  }
+`;
+
+export const NavItems = styled.menu``;

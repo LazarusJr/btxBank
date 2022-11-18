@@ -12,10 +12,6 @@ contract LuxBank {
     event withdrawalFunds(uint indexed _amount);
     event ClientRegistered(string indexed _fname, string indexed _sname);
 
-    uint withdrawFee = 1 ether / 4;
-    uint actualWithdraw;
-    uint private cp; // suppose to collect the withdrawl fees
-
     constructor() {
         client = payable(msg.sender);
     }
