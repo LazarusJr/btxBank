@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
 import { ReactComponent as UserP } from "../../Assets/Navbar/userP.svg";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  background-color: transparent;
+  /* padding: 10px; */
+  /* background-color: rgba(135, 206, 235, 0.2); */
+  height: 100px;
+  background-color: black;
 `;
 
 export const NavLogo = styled.div`
@@ -21,7 +23,7 @@ export const NavLogo = styled.div`
   }
 `;
 
-export const NavTxt = styled.text`
+export const NavTxt = styled.div`
   padding-top: 25px;
   font-size: 15px;
 `;
@@ -81,9 +83,9 @@ export const UserIcon = styled(UserP)`
 
   &:hover {
     border-radius: 50px;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 2);
+    /* box-shadow: 0 5px 15px rgba(255, 255, 255, 2); */
     cursor: pointer;
-    filter: brightness(4);
+    /* filter: brightness(0.2); */
   }
 `;
 
@@ -101,7 +103,7 @@ export const DropDown = styled.div`
   /* border-top-right-radius: 120px; */
 `;
 
-export const MenuItem = styled.menu`
+export const MenuItem = styled.div`
   height: 50px;
   display: flex;
   flex-direction: column;
@@ -131,5 +133,7 @@ export const NavButton = styled.button`
     filter: brightness(2);
   }
 `;
+
+export const HamburgerMenu = styled(GiHamburgerMenu)``;
 
 export const NavItems = styled.menu``;

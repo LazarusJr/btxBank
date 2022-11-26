@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import MainLogo from "../../Assets/logo.png";
-import { ethers } from "ethers";
-import { MenuItems } from "../../Data/NavMenu";
 import {
   NavbarContainer,
   NavLogo,
@@ -15,15 +13,18 @@ import {
   DropDown,
   MenuItem,
   NavButton,
+  HamburgerMenu,
 } from "../Navbar/NavbarStyling";
+import Burger from "./../Burger/Burger";
+import MenuItems from "./../Menu/Menu";
+import { useClickOutsideNav } from "../../Hooks/navClickOff";
 
 const Navbar = () => {
+  const node = useRef();
+  useClickOutsideNav(node, () => setNavOpen(false));
   const [open, setOpen] = useState(false);
-  const [isConnected, setConnected] = useState(false);
-  const [hasMetaMask, setHasMetaMask] = useState(false);
-  const [AccountAddress, setAccountAd] = useState("");
-
-  const { ethereum } = window;
+  const [navOpen, setNavOpen] = useState(false);
+  const handleNavOpen = () => !navOpen;
 
   const renderNavdrop = () => {
     if (open) {
@@ -46,6 +47,10 @@ const Navbar = () => {
 
   return (
     <NavbarContainer>
+      <div ref={node}>
+        <Burger navOpen={navOpen} setNavOpen={setNavOpen} />
+        <MenuItems navOpen={navOpen} setNavOpen={setNavOpen} />
+      </div>
       <NavLogo>
         <Logo src={MainLogo} />
         <NavTxt>
@@ -53,7 +58,7 @@ const Navbar = () => {
         </NavTxt>
       </NavLogo>
       <NavMenu>
-        <NavUl>
+        {/* <NavUl>
           <li>
             <Links to="/">Home</Links>
           </li>
@@ -63,7 +68,7 @@ const Navbar = () => {
           <li>
             <Links to="/AccountDashboard">Account Dashboard</Links>
           </li>
-        </NavUl>
+        </NavUl> */}
         <ProfileUser>
           <UserIcon onClick={() => setOpen(!open)} />
           {renderNavdrop()}

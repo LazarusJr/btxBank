@@ -6,15 +6,26 @@ import {
   Heading,
   Typer,
   Span,
+  Button,
+  Arrow,
 } from "./HeroStyling";
-import bgVideo from "../../Assets/bgVideo.mp4";
+import BgVideo from "../../Assets/bgVideo.mp4";
 import Typewriter from "typewriter-effect";
+import arrowIcon from "../../Assets/iconAssets/arrow.svg";
 
 const Hero = () => {
   return (
     <HeroSection>
       <Container>
-        <Video src={bgVideo} autoPlay loop muted type="video/mp4" />
+        <Video
+          autoPlay
+          loop
+          muted
+          playsinline="true"
+          disablePictureInPicture="true"
+        >
+          <source src={BgVideo} type="video/mp4" />
+        </Video>
         <Heading>
           <h1>
             Welcome to the new age of <Span>banking</Span>
@@ -25,8 +36,8 @@ const Hero = () => {
                 strings: [
                   "Decentralized",
                   "Secure",
-                  "Annoymousity",
-                  "Powerful Community",
+                  "Fast Execution Transfers",
+                  "Growing Community",
                 ],
                 delay: 100,
                 deleteSpeed: 100,
@@ -36,7 +47,10 @@ const Hero = () => {
               }}
             />
           </Typer>
+          <Arrow src={arrowIcon} />
         </Heading>
+        {/* <Arrow src={arrowIcon} /> */}
+        <Button href="/signup">Get Started today</Button>
       </Container>
     </HeroSection>
   );

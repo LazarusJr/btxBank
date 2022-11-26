@@ -15,6 +15,9 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  background: transparent;
 }
 `;
 
@@ -30,7 +33,5 @@ export const Button = styled.button`
     box-shadow: 0 5px 15px rgba(240, 240, 240, 0.7);
   }
 `;
-
-export const Container = styled.div``;
 
 export default GlobalStyle;
