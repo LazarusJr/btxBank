@@ -6,81 +6,49 @@ import {
   NavTxt,
   NavMenu,
   Logo,
-  NavUl,
-  Links,
   ProfileUser,
-  UserIcon,
-  DropDown,
-  MenuItem,
-  NavButton,
-  HamburgerMenu,
-} from "../Navbar/NavbarStyling";
-import Burger from "./../Burger/Burger";
-import MenuItems from "./../Menu/Menu";
+} from "../../Styles/NavbarStyling";
+import Burger from "../Navbar/Burger/Burger";
+import MenuItems from "../Navbar/Menu/Menu";
 import { useClickOutsideNav } from "../../Hooks/navClickOff";
+import { usePclickOff } from "../../Hooks/userPclickoff";
+import UserProfile from "../Navbar/UserProfile/UserProfile";
+import UserDropdown from "./UserProfile/Dropdown/UserDropdown";
+
+/*
+FIXME:
+* - the user dropdown needs fixing with the z-index
+* - need to sort out the buttons to make sure all is working properly
+*/
+
+/*
+TODO:
+*/
 
 const Navbar = () => {
-  const node = useRef();
-  useClickOutsideNav(node, () => setNavOpen(false));
-  const [open, setOpen] = useState(false);
+  const menuNode = useRef();
+  const userIconNode = useRef();
+  useClickOutsideNav(menuNode, () => setNavOpen(false));
   const [navOpen, setNavOpen] = useState(false);
-  const handleNavOpen = () => !navOpen;
-
-  const renderNavdrop = () => {
-    if (open) {
-      return (
-        <DropDown>
-          <MenuItem>
-            <h1>top 1</h1>
-            <NavButton>Connect Wallet</NavButton>
-          </MenuItem>
-        </DropDown>
-      );
-    } else {
-      <DropDown>
-        <MenuItem>
-          <button>Install Meta Mask</button>
-        </MenuItem>
-      </DropDown>;
-    }
-  };
+  const [userOpen, setuserOpen] = useState(false);
+  usePclickOff(userIconNode, () => setuserOpen(false));
 
   return (
     <NavbarContainer>
-      <div ref={node}>
+      <div ref={menuNode}>
         <Burger navOpen={navOpen} setNavOpen={setNavOpen} />
         <MenuItems navOpen={navOpen} setNavOpen={setNavOpen} />
       </div>
       <NavLogo>
-        <Logo src={MainLogo} />
+        {/* <Logo src={MainLogo} /> */}
         <NavTxt>
           <h1>BTX</h1>
         </NavTxt>
       </NavLogo>
       <NavMenu>
-        {/* <NavUl>
-          <li>
-            <Links to="/">Home</Links>
-          </li>
-          <li>
-            <Links to="/Signup">SignUp</Links>
-          </li>
-          <li>
-            <Links to="/AccountDashboard">Account Dashboard</Links>
-          </li>
-        </NavUl> */}
-        <ProfileUser>
-          <UserIcon onClick={() => setOpen(!open)} />
-          {renderNavdrop()}
-          {/* {open ? (
-            <DropDown>
-              <MenuItems>
-                <button>Connect Wallet</button>
-              </MenuItems>
-            </DropDown>
-          ) : (
-            <></>
-          )} */}
+        <ProfileUser ref={userIconNode}>
+          <UserProfile userOpen={userOpen} setuserOpen={setuserOpen} />
+          <UserDropdown userOpen={userOpen} setuserOpen={setuserOpen} />
         </ProfileUser>
       </NavMenu>
     </NavbarContainer>

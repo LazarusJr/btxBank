@@ -8,22 +8,24 @@ import {
   Span,
   Button,
   Arrow,
-} from "./HeroStyling";
+} from "../../Styles/HeroStyling";
 import BgVideo from "../../Assets/bgVideo.mp4";
 import Typewriter from "typewriter-effect";
 import arrowIcon from "../../Assets/iconAssets/arrow.svg";
+
+/* 
+
+TODO:
+* - change the button on the main hero section and add the glow from what ive seen on youtube.
+* - after hero section can add a services section but more so need to do API for current prices of crypto to GBP/USD.
+* - fix the bottom margin that is black from the page and fix the space the video is taking
+*/
 
 const Hero = () => {
   return (
     <HeroSection>
       <Container>
-        <Video
-          autoPlay
-          loop
-          muted
-          playsinline="true"
-          disablePictureInPicture="true"
-        >
+        <Video autoPlay loop muted>
           <source src={BgVideo} type="video/mp4" />
         </Video>
         <Heading>

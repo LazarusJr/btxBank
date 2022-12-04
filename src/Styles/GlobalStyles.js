@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import * as theme from "./ThemeSwitch.styled";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -7,8 +8,8 @@ const GlobalStyle = createGlobalStyle`
 body {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 400;
-  color: white;
-  background-color: black;
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.background};
 }
 
 * {

@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const HeroSection = styled.section`
-  height: 100vh;
+  /* height: 100vh; */
   /* background-position: center;
   background-size: cover; */
   object-fit: contain;
@@ -19,7 +19,7 @@ export const Video = styled.video`
   object-fit: cover;
   width: 100%;
   height: 75%;
-  z-index: -1;
+  z-index: -99;
   top: 100px;
   position: absolute;
   filter: brightness(35%);
@@ -33,6 +33,7 @@ export const Heading = styled.div`
   h1 {
     position: relative;
     margin-top: 200px;
+    color: ${({ theme }) => theme.colors.herotext};
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -40,7 +41,7 @@ export const Heading = styled.div`
 `;
 
 export const Typer = styled.div`
-  color: white;
+  color: ${({ theme }) => theme.colors.herotext};
   justify-content: center;
   display: flex;
   margin-top: 15px;
@@ -48,7 +49,7 @@ export const Typer = styled.div`
 `;
 
 export const Span = styled.span`
-  color: skyblue;
+  color: ${({ theme }) => theme.colors.heroHighlight};
 `;
 
 export const Button = styled.button`
