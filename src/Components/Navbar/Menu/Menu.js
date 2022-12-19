@@ -2,6 +2,8 @@ import { bool } from "prop-types";
 import React, { useReducer } from "react";
 import { StyledMenu } from "../../../Styles/Menu.styled";
 import LightBulb from "../../../Assets/iconAssets/lightbulb.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../../Redux/themeSlice";
 
 // const reducer = (state, action) => {
 //   switch(action.type) {
@@ -16,12 +18,11 @@ TODO:
 */
 
 const Menu = ({ navOpen }) => {
-  const [themeSwitch, toggle] = useReducer(
-    (themeSwitch) => !themeSwitch,
-    false
-  );
-  // const [liSwitch, setSwitch] = useState(false);
-  // const [liText, setText] = useState("");
+  // const handleClick = () => {
+  //   updateState(!false);
+  // };
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme);
 
   return (
     <StyledMenu navOpen={navOpen}>
@@ -30,9 +31,19 @@ const Menu = ({ navOpen }) => {
       <a href="/AccountDashboard">Account Dashboard</a>
       <br />
       <label>
-        <input type="checkbox" value={themeSwitch} onChange={toggle} />
-        <p>{themeSwitch ? "DARK" : "LIGHT"}</p>
-        <span>
+        <input
+          type="checkbox"
+          // value={themeSwitch}
+          onChange={() => dispatch(toggleTheme())}
+        />
+        <p>
+          {theme.dark ? (
+            "DARK"
+          ) : (
+            <span style={{ color: "skyblue" }}>LIGHT</span>
+          )}
+        </p>
+        <span className="lightSwitcher">
           <img src={LightBulb} />
         </span>
       </label>

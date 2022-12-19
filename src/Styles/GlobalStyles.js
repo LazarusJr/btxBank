@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from "styled-components";
-import * as theme from "./ThemeSwitch.styled";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -10,15 +9,15 @@ body {
   font-weight: 400;
   color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.background};
+  height: 100%;
+  width: 100%;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 0;
   outline: 0;
-  background: transparent;
 }
 `;
 

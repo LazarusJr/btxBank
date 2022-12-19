@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Typewriter from "typewriter-effect";
 
 export const Container = styled.div`
   width: 100%;
@@ -9,10 +8,10 @@ export const Container = styled.div`
 `;
 
 export const HeroSection = styled.section`
-  /* height: 100vh; */
-  /* background-position: center;
-  background-size: cover; */
-  object-fit: contain;
+  height: 100vh;
+  background-position: center;
+  /* background-size: cover; */
+  /* object-fit: contain; */
 `;
 
 export const Video = styled.video`
@@ -71,6 +70,7 @@ export const Button = styled.button`
   &:hover {
     border-color: white;
     cursor: pointer;
+    color: skyblue;
   }
 `;
 

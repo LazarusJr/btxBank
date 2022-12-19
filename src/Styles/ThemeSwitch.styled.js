@@ -9,7 +9,6 @@ export const light = {
     heroHighlight: "white",
     burgerHover: "skyblue",
     closeHover: "skyblue",
-
     logoHover: "skyblue",
     dropdownline: "black",
 

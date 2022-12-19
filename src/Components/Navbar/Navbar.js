@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useContext, useRef } from "react";
 import MainLogo from "../../Assets/logo.png";
 import {
   NavbarContainer,
@@ -14,6 +14,8 @@ import { useClickOutsideNav } from "../../Hooks/navClickOff";
 import { usePclickOff } from "../../Hooks/userPclickoff";
 import UserProfile from "../Navbar/UserProfile/UserProfile";
 import UserDropdown from "./UserProfile/Dropdown/UserDropdown";
+import { toggleTheme } from "../../Redux/themeSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 /*
 FIXME:

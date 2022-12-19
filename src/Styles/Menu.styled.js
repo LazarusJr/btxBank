@@ -57,7 +57,7 @@ export const StyledMenu = styled.nav`
     appearance: none;
   }
 
-  label span {
+  label .lightSwitcher {
     position: absolute;
     top: 0%;
     left: 0;
